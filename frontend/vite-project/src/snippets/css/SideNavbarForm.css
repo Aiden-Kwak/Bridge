@@ -21,6 +21,8 @@
 }
 .nav-item img {
     margin-right: .5rem;
+    height: 32px;
+    width: 32px;
 }
 
 .nav-item i {
