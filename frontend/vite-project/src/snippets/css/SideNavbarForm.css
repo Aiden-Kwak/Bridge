@@ -1,0 +1,28 @@
+.sidenav-container {
+    width: 200px;
+    height: calc(100vh - 60px); /* 상단 네비게이션 바 높이 뺌 */
+    padding-top: 2rem;
+    border-right: #EBDBFF 1px solid;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    margin-left: .5rem;
+    margin-bottom: 1rem;
+    text-decoration: none;
+    color: #000;
+    font-size: 1.5rem;
+}
+.nav-item img {
+    margin-right: .5rem;
+}
+
+.nav-item i {
+    margin-right: 10px;
+}
+
+.nav-item:hover {
+    background-color: #ddd;
+}

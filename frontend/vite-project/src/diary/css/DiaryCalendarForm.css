@@ -1,0 +1,16 @@
+.diary-calendar-container {
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+}
+
+.content-container {
+    display: flex;
+    flex: 1;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+    background-color: #fff;
+}

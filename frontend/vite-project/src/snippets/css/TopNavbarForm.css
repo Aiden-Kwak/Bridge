@@ -1,0 +1,29 @@
+.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    background-color: #fff;
+    padding: 0 0px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    border-bottom: #EBDBFF 1px solid;
+}
+.profile-icon {
+    margin-right: 2rem;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-family: 'yg-jalnan';
+    margin-left: 2rem;
+}
+
+.profile-icon img {
+    width: 40px;
+    height: 40px;
+    border-radius: 10%;
+}
