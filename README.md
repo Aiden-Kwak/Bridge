@@ -1,4 +1,4 @@
-<h1>🌱 DRF + React Quick Starter</h1>
+<h1>🌱 Bridge</h1>
 <br>
 
 <h2>Stack</h2>
@@ -12,25 +12,17 @@
   <img src="https://img.shields.io/badge/npm-purple?style=flat-square&logo=npm&logoColor=white"/></a>
 </div>
 
-<h2>What it prepared?</h2>
-
-```bash
-1. requirements.txt
-2. drf, react frame
-3. react post, get axios example
-4. react folder structure ? Kwaks personal taste
-5. CORS problem solving ? django-cors-header, react http-proxy-middleware module with setupProxy.js
-6. react-cookie to send csrftoken with POST
-```
-
 <h2>How to start?</h2>
 
 ```bash
 (in /backend)
-
+( You have to make /backend/.env )
+( If u have struggle to run under commands, use python3 instead of python)
 $ python3 -m venv venv
 $ . venv/bin/activate
 $ pip install -r requirements.txt
+$ python manage.py makemigrations
+$ python manage.py migrate
 $ python manage.py runserver
 
 (in /frontend/vite-project)
