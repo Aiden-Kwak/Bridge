@@ -1,6 +1,10 @@
 <h1>🌱 Bridge</h1>
 <br>
-
+<p align="center">
+	<a href="https://bridge-5.gitbook.io/bridge/">
+		<img src="/assets/gitbook.png" width="220" height="45"/>
+	</a>
+</p>
 <h2>Stack</h2>
 
 <div align="center">
