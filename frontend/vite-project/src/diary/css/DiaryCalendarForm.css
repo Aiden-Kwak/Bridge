@@ -12,6 +12,7 @@
 .content {
     flex: 1;
     padding: 20px;
+    padding-top: 4rem;
     background-color: #fff;
     text-align: center;
 }
@@ -20,6 +21,7 @@
 .calendar-container {
     display: inline-block;
     padding: 20px;
+    margin-top: 5rem;
     width: 90%;
 }
 
@@ -28,13 +30,14 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
+  font-size: 2rem;
 }
 
 .calendar-header button {
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 2rem;
 }
 
 .calendar-grid {
@@ -45,9 +48,9 @@
 
 .calendar-day-name,
 .calendar-day {
-  padding: 10px;
-  background: #f0f0f0;
-  border-radius: 4px;
+  padding: 1.5rem .5rem;
+  border-radius: 4rem;
+  font-size: 1.2rem;
 }
 
 .calendar-day:hover {

@@ -1,8 +1,12 @@
 .sidenav-container {
     width: 200px;
     height: calc(100vh - 60px); /* 상단 네비게이션 바 높이 뺌 */
-    padding-top: 2rem;
+    padding-top: 4rem;
     border-right: #EBDBFF 1px solid;
+}
+
+.sidenav-container:first-child {
+    margin-top: 1rem;
 }
 
 .nav-item {
