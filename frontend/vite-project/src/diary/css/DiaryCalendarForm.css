@@ -13,4 +13,47 @@
     flex: 1;
     padding: 20px;
     background-color: #fff;
+    text-align: center;
+}
+
+/* calendar */
+.calendar-container {
+    display: inline-block;
+    padding: 20px;
+    width: 90%;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.calendar-header button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+}
+
+.calendar-day-name,
+.calendar-day {
+  padding: 10px;
+  background: #f0f0f0;
+  border-radius: 4px;
+}
+
+.calendar-day:hover {
+    background: #EAD9FF;
+}
+
+.calendar-day.empty {
+  background: none;
 }
