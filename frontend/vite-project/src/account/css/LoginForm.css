@@ -1,0 +1,41 @@
+
+.login-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 360px;
+}
+.login-container > .logo {
+    text-align: center;
+    font-size: 3rem;
+    font-family: 'yg-jalnan';
+    margin: .5rem 0;
+}
+.login-container form {
+    display: flex;
+    flex-direction: column;
+}
+.login-container form input {
+    margin-bottom: .5rem;
+    border: 0;
+    background: #EBDBFF!important;
+    padding: 15px;
+    border-radius: 1rem;
+    width: 92%;
+    visibility: visible;
+    font-size: 1rem;
+}
+.login-container .submit:hover {
+    background: #EBDBFF;
+    color: #000;
+}
+.login-container button {
+    margin-bottom: 1rem;
+    padding: 12px;
+    font-size: 1.2rem;
+}
+
+.login-container .login-notice {
+    font-size: 1.2rem;
+}

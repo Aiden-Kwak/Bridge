@@ -1,0 +1,27 @@
+.signup-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 360px;
+}
+.signup-container > .logo {
+    text-align: center;
+    font-size: 3rem;
+    font-family: 'yg-jalnan';
+    margin: .5rem 0;
+}
+.signup-container form {
+    display: flex;
+    flex-direction: column;
+}
+.signup-container form input {
+    margin-bottom: .5rem;
+    border: 0;
+    background: #EBDBFF!important;
+    padding: 15px;
+    border-radius: 1rem;
+    width: 92%;
+    visibility: visible;
+    font-size: 1rem;
+}
