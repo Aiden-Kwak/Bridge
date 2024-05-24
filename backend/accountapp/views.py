@@ -46,6 +46,13 @@ class AccountCreateAPI(APIView):
                 'activation_link': activation_link,
             })
             to_email = serializer.validated_data['email']
+
+            '''
+            주의! 배포시 설정 해제할것.
+            '''
+
+            import ssl
+            ssl_context=ssl._create_unverified_context()
             send_mail(
                 subject=mail_subject, 
                 message="", 
