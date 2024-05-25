@@ -36,7 +36,9 @@ environ.Env.read_env(
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env('SECRET_KEY')
 OPEN_API_KEY = env('OPEN_API_KEY')
+#OPEN_WEATHER_API_KEY = env('OPEN_WEATHER_MAP_API_KEY')
 os.environ["OPENAI_API_KEY"] = OPEN_API_KEY
+#os.environ["OPENWEATHERMAP_API_KEY"] = OPEN_WEATHER_API_KEY 
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
