@@ -16,6 +16,10 @@ function DiaryWriteForm() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        const formData = new FormData();
+        formData.append('title', title);
+        formData.append('content', content);
+        formData.append('city', city);
         const user = localStorage.getItem('user');
         if (!user) {
             console.error('로그인이 필요합니다.');
@@ -59,15 +63,32 @@ function DiaryWriteForm() {
                         <form onSubmit={handleSubmit}>
                             <div className="form-group">
                                 <label htmlFor="title">제목</label>
-                                <input type="text" id="title" name="title" />
+                                <input 
+                                    type="text" 
+                                    id="title" 
+                                    name="title" 
+                                    value={title}
+                                    onChange={(e) => setTitle(e.target.value)}
+                                    />
                             </div>
                             <div className="form-group">
                                 <label htmlFor="content">내용</label>
-                                <textarea id="content" name="content"></textarea>
+                                <textarea 
+                                    id="content" 
+                                    name="content" 
+                                    value={content}
+                                    onChange={(e) => setContent(e.target.value)}
+                                ></textarea>
                             </div>
                             <div className="form-group">
                                 <label htmlFor="city">임시영역(지역)</label>
-                                <input type="text" id="city" name="city" />
+                                <input 
+                                    type="text" 
+                                    id="city" 
+                                    name="city" 
+                                    value={city}
+                                    onChange={(e) => setCity(e.target.value)}
+                                />
                             </div>
                             <button type="submit">저장</button>
                         </form>
