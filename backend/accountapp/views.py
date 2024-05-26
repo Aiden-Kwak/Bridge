@@ -104,12 +104,14 @@ class LogoutAPI(APIView):
 
 class UserProfileAPI(APIView):
     permissions_classes = [permissions.IsAuthenticated]
-    def get(self, request):
-        user = request.user
-        return Response({"username": user.username, "email": user.email}, status=status.HTTP_200_OK)
+    def get(self, request, slug, format=None):
+        user = get_object_or_404(User, username=slug)
+        profile = get_object_or_404(Profile, user=user)
+        serializer = ProfileSerializer(profile)
+        return Response(serializer.data)
     
-    def put(self, request):
-        user = get_object_or_404(User, username=id)
+    def put(self, request, slug, format=None):
+        user = get_object_or_404(User, username=slug)
         if request.user != user:
             return Response({'error': '권한이 없습니다.'}, status=status.HTTP_403_FORBIDDEN)
         profile, created = Profile.objects.get_or_create(user=user)

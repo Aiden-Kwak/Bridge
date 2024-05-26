@@ -9,6 +9,6 @@ urlpatterns = [
     path('activate/<str:uidb64>/<str:token>/', ActivateAccountAPI.as_view(), name='activate'),
     path('login/', LoginAPI.as_view(), name='login'),
     path('logout/', LogoutAPI.as_view(), name='logout'),
-    path('profile/<int:pk>', UserProfileAPI.as_view(), name='profile'),
+    path('profile/<slug:slug>', UserProfileAPI.as_view(), name='profile'),
     #re_path(r'^pwreset/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$', RedirectView.as_view(url='http://localhost:5173/password-reset/%(uidb64)s/%(token)s')),
 ]
