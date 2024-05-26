@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useState, useEffect, useContext } from 'react';
-import {getCookie} from '../utils';
+import {getCookie, removeCookie} from '../utils';
 import calanderRight from '../assets/icon/calendarRight.svg';
 import { Link, useNavigate } from 'react-router-dom';
 import { UserContext } from '../UserContext';
@@ -28,14 +28,15 @@ function LoginForm() {
         }
     }, [user, navigate]);
 */
-    
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError('');
         const csrfToken=getCookie('csrftoken');
+        console.log('csrfToken:', csrfToken);
+        axios.defaults.withCredentials = true;
         try {
-            const response = await axios.post('http://127.0.0.1:8000/api/account/login/', {
+            const response = await axios.post('http://localhost:8000/api/account/login/', {
                 username,
                 password
             }, {

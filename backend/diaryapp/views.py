@@ -42,7 +42,7 @@ class DiaryDetailAPIView(APIView):
 #오늘과 내일의 날씨 데이터 추출 
 class CheckWeatherAPIView(APIView):
     permission_classes = [IsAuthenticated]
-    API_KEY = ""
+    API_KEY = "8636a5f37cd3f6de67d6eef1453a1dc6"
     country_code = 'KR'
     def get(self, request, city):
         url = f'http://api.openweathermap.org/data/2.5/forecast?q={city},{self.country_code}&appid={self.API_KEY}&units=metric'

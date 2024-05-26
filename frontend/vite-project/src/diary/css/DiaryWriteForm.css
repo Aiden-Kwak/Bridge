@@ -1,0 +1,18 @@
+.diary-write-container {
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+}
+
+.content-container {
+    display: flex;
+    flex: 1;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+    padding-top: 4rem;
+    background-color: #fff;
+    text-align: center;
+}

@@ -10,8 +10,9 @@ function LogoutForm() {
 
     const handleLogout = useCallback(async () => {
         const csrfToken=getCookie('csrftoken');
+        axios.defaults.withCredentials = true;
         try {
-            await axios.post('http://127.0.0.1:8000/api/account/logout/', {}, {
+            await axios.post('http://localhost:8000/api/account/logout/', {}, {
                 headers: {
                     'X-CSRFToken': csrfToken
                 },
