@@ -4,7 +4,7 @@ import './App.css'
 import { UserProvider } from './UserContext'
 import { LoginForm, LogoutForm, SignupForm, ProfileForm } from './account'
 import { MainPageForm } from './mainpage'
-import { DiaryCalendarForm, DiaryWriteForm, DiaryListForm } from './diary'
+import { DiaryCalendarForm, DiaryWriteForm, DiaryListForm, DiaryDetailForm } from './diary'
 
 
 function App() {
@@ -20,6 +20,7 @@ function App() {
             <Route path="/calendar" element={<DiaryCalendarForm />} />
             <Route path="/diary/write" element={<DiaryWriteForm />} />
             <Route path="/diary/list" element={<DiaryListForm />} />
+            <Route path="/diary/:id" element={<DiaryDetailForm />} />
             <Route path="/" element={<MainPageForm />} />
           </Routes>
         </div>

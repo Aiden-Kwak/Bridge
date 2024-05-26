@@ -12,6 +12,9 @@
     z-index: 1000;
     border-bottom: #EBDBFF 1px solid;
 }
+.top .nav-item {
+    margin: 0;
+}
 .profile-icon {
     margin-right: 2rem;
 }

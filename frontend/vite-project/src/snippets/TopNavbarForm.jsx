@@ -1,19 +1,23 @@
 import React from 'react';
 import './css/TopNavbarForm.css';
 import profileLogo from '../assets/icon/userInform.svg';
+import { Link } from 'react-router-dom';
 
 function TopNavbarForm(){
     return (
         <div className="topnav-container">
             <div className='top'>
-                <div className="logo">
-                    Bridge
-                </div>
-                <div className="profile-icon">
-                    <img src={profileLogo} alt="Profile" />
-                </div>
+                <Link to="/" className="nav-item">
+                    <div className="logo">
+                        Bridge
+                    </div>
+                </Link>
+                <Link to="/" className="nav-item">
+                    <div className="profile-icon">
+                        <img src={profileLogo} alt="Profile" />
+                    </div>
+                </Link>
             </div>
-            
         </div>
 
     );
