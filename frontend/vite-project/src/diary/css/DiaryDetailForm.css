@@ -33,3 +33,39 @@
     text-align: left;
     margin-bottom: 1rem;
 }
+
+.diary-detail-container .diary-container .diary-container {
+    display: flex;
+}
+
+.diary-detail-container .content-boxes {
+    display: flex;
+    gap: 1rem;
+}
+
+.content-boxes > div {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    border: dashed 3px #ccc;
+    padding: 2rem;
+    text-align: left;
+    font-size: 1.5rem;
+    line-height: 1.5;
+}
+.gpt-content > .notice {
+    color: #BD71FF;
+}
+
+.gpt-services {
+    margin-top: 2rem;
+    padding: .5rem;
+}
+
+.gpt-services > div {
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    text-align: left;
+}
+
+

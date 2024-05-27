@@ -48,7 +48,10 @@ function DiaryDetailForm(){
                         <p className='diary-title'>{title}</p>
                         <div className='content-boxes'>
                             <div className='original-content'>{content}</div>
-                            <div className='gpt-content'>{gpt_content}</div>
+                            <div className='gpt-content'>
+                                <p className='notice'>이렇게 생각해봐요!</p>
+                                <p>{gpt_content}</p>
+                            </div>
                         </div>
                         <div className='gpt-services'>
                             <div className='gpt-recommend'>{gpt_recommend}</div>
