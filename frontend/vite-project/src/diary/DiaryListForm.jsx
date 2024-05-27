@@ -6,6 +6,8 @@ import SideNavbarForm  from '../snippets/SideNavbarForm';
 import { getCookie } from '../utils';
 import './css/DiaryListForm.css';
 import {useParams} from 'react-router-dom';
+import searchIcon from '../assets/icon/searchBar.svg'
+
 
 function DiaryListForm() {
     const [diaries, setDiary] = useState([]);
@@ -79,21 +81,24 @@ function DiaryListForm() {
             <div className='content-container'>
                 <SideNavbarForm />
                 <div className='content'>
-                    <input 
-                        type="text" 
-                        value={search} 
-                        onChange={handleInputChange} 
-                        placeholder="일기제목을 입력하세요" 
-                    />
+                    <div className="search-bar">
+                        <img className='search-icon'src={searchIcon} alt="icon"/>
+                        <input 
+                                type="text" 
+                                value={search} 
+                                onChange={handleInputChange} 
+                                placeholder="일기제목을 입력하세요" 
+                        />
+                    </div>
                     <div className='diary-container'>
                         {diaries.map((diary) => (
                             <div key={diary.id}>
                                 <Link to={`/diary/${diary.id}`} state={{propDiary: diary}}>
                                     <div className='diary-item'>
-                                        <p>{diary.created_at.split('T')[0]}</p>
+                                        <p class='item-title'>{diary.title}</p>
                                         <div>
-                                            <p>{diary.title}</p>
-                                            <p>{truncate(diary.content)}</p>
+                                            <p class='item-date'>{diary.created_at.split('T')[0]}</p>
+                                            <p class='item-content'>{truncate(diary.content)}</p>
                                         </div>
                                     </div>
                                 </Link>
