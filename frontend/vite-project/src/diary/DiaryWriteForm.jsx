@@ -12,8 +12,16 @@ function DiaryWriteForm() {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
     const [city, setCity] = useState(''); // 임시영역(지역) 추가
+    const maxLength = 1000;
     const navigate = useNavigate();
 
+
+    const handleContentTextareaChange = (e) => {
+        const newValue = e.target.value;
+        if (newValue.length <= maxLength) {
+            setContent(e.target.value);
+        }
+    };
     const handleSubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData();
@@ -25,11 +33,9 @@ function DiaryWriteForm() {
             console.error('로그인이 필요합니다.');
             return;
         }
-        console.log('token2 sibal:', getCookie('testcookie'));
 
         try {
             const csrftoken = getCookie('csrftoken');
-            console.log('csrftoken:', csrftoken);
             const response = await axios.post('http://localhost:8000/api/diary/create-diary', {
                 title,
                 content,
@@ -52,6 +58,14 @@ function DiaryWriteForm() {
         }
     };
 
+    const getFormattedToday = () => {
+        const today = new Date();
+        const year = today.getFullYear();
+        const month = String(today.getMonth() + 1).padStart(2, '0'); // 월은 0부터 시작하므로 +1 필요
+        const day = String(today.getDate()).padStart(2, '0');
+        return `${year}.${month}.${day}`;
+    };
+
     return (
         <div className="diary-write-container">
             <TopNavbarForm />
@@ -59,27 +73,31 @@ function DiaryWriteForm() {
                 <SideNavbarForm />
                 <div className="content">
                     <div className="diary-write-form">
-                        <h1>일기 쓰기 CSS ㅅㅂ</h1>
+                        <p className='today-date'>{getFormattedToday()}</p>
                         <form onSubmit={handleSubmit}>
                             <div className="form-group">
-                                <label htmlFor="title">제목</label>
+                                {/*<label htmlFor="title">제목</label>*/}
                                 <input 
                                     type="text" 
                                     id="title" 
                                     name="title" 
                                     value={title}
+                                    placeholder='제목을 입력하세요!'
                                     onChange={(e) => setTitle(e.target.value)}
                                     />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="content">내용</label>
+                                {/*<label htmlFor="content">내용</label>*/}
                                 <textarea 
                                     id="content" 
                                     name="content" 
                                     value={content}
-                                    onChange={(e) => setContent(e.target.value)}
+                                    placeholder='오늘은 어떤 일이 있었나요?'
+                                    onChange={handleContentTextareaChange}
+                                    maxLength={maxLength}
                                 ></textarea>
                             </div>
+                            {/*
                             <div className="form-group">
                                 <label htmlFor="city">임시영역(지역)</label>
                                 <input 
@@ -89,9 +107,18 @@ function DiaryWriteForm() {
                                     value={city}
                                     onChange={(e) => setCity(e.target.value)}
                                 />
+                            </div>*/}
+                            <div className='bottom-container'>
+                                <div className='back-btn'>
+                                    <p>&lt;</p>
+                                </div>
+                                <div className="content-counter">
+                                    {content.length}/{maxLength}
+                                </div>
+                                <button type="submit">저장</button>
                             </div>
-                            <button type="submit">저장</button>
                         </form>
+                        
                     </div>
                 </div>
             </div>
