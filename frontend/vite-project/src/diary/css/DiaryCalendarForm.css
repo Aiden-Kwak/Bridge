@@ -4,12 +4,12 @@
     height: 90vh;
 }
 
-.content-container {
+.diary-calendar-container .content-container {
     display: flex;
     flex: 1;
 }
 
-.content {
+.diary-calendar-container .content {
     flex: 1;
     padding: 20px;
     padding-top: 4rem;

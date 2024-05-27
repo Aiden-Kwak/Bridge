@@ -10,12 +10,12 @@
     height: 90vh;
 }
 
-.content-container {
+.profile-page-container .content-container {
     display: flex;
     flex: 1;
 }
 
-.content {
+.profile-page-container .content {
     flex: 1;
     padding: 20px;
     padding-top: 4rem;
