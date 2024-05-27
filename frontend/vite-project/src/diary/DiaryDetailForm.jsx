@@ -18,14 +18,17 @@ function DiaryDetailForm(){
     };
 
     const [date, setDate] = useState('');
+    const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
     const [gpt_advise, setGpt_advise] = useState('');
     const [gpt_content, setGpt_content] = useState('');
     const [gpt_recommend, setGpt_recommend] = useState('');
     console.log(formatDate(DiaryListProps.propDiary.created_at));
+    console.log(DiaryListProps.propDiary);
 
     useEffect(() => {
         setDate(formatDate(DiaryListProps.propDiary.created_at));
+        setTitle(DiaryListProps.propDiary.title);
         setContent(DiaryListProps.propDiary.content);
         setGpt_advise(DiaryListProps.propDiary.gpt_advise);
         setGpt_content(DiaryListProps.propDiary.gpt_content);
@@ -42,6 +45,7 @@ function DiaryDetailForm(){
                 <div className='content'>
                     <div className="diary-container">
                         <p className='diary-date'>{date}</p>
+                        <p className='diary-title'>{title}</p>
                         <div className='content-boxes'>
                             <div className='original-content'>{content}</div>
                             <div className='gpt-content'>{gpt_content}</div>

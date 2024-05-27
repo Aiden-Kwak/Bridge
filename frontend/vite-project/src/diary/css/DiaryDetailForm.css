@@ -19,3 +19,17 @@
     background: linear-gradient(transparent 44px, #ccc 45px);
     background-size: 100% 45px;
 }
+
+.diary-detail-container .diary-container .diary-date {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+    text-align: left;
+}
+
+.diary-detail-container .diary-container .diary-title {
+    font-size: 1.5rem;
+    text-align: left;
+    margin-bottom: 1rem;
+}
