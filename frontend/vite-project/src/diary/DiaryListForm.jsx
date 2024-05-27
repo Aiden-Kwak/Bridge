@@ -88,7 +88,7 @@ function DiaryListForm() {
                     <div className='diary-container'>
                         {diaries.map((diary) => (
                             <div key={diary.id}>
-                                <Link to={`/diary/${diary.id}`}>
+                                <Link to={`/diary/${diary.id}`} state={{propDiary: diary}}>
                                     <div className='diary-item'>
                                         <p>{diary.created_at.split('T')[0]}</p>
                                         <div>
