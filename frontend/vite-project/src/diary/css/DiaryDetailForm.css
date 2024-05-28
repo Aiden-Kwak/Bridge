@@ -33,7 +33,7 @@
 }
 
 .diary-detail-container .diary-container .diary-title {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     text-align: left;
     margin-bottom: 1rem;
 }
@@ -72,6 +72,15 @@
     margin-bottom: 2rem;
     font-size: 1.5rem;
     text-align: left;
+}
+.gpt-services p {
+    margin-top: 1rem;
+}
+
+.highlight {
+    background-color: #EAD9FF; /* 형광펜 효과를 주기 위한 배경색 설정 */
+    padding: 0.3rem 1rem; /* 텍스트 주위에 약간의 여백을 추가 */
+    border-radius: 3px; /* 모서리를 약간 둥글게 */
 }
 
 

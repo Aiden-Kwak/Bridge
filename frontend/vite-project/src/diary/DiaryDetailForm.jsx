@@ -52,8 +52,14 @@ function DiaryDetailForm(){
                             </div>
                         </div>
                         <div className='gpt-services'>
-                            <div className='gpt-recommend'>{gpt_recommend}</div>
-                            <div className='gpt-advise'>{gpt_advise}</div>
+                            <div className='gpt-recommend'>
+                                <span className='highlight'>내일은 이런 일을 해보면 어때요?</span>
+                                <p>{gpt_recommend}</p>
+                            </div>
+                            <div className='gpt-advise'>
+                                <span className='highlight'>당신에게 공감해요</span>
+                                <p>{gpt_advise}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
