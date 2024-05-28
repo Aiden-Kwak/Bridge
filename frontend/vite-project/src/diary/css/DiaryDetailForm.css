@@ -20,6 +20,10 @@
     background-size: 100% 45px;
 }
 
+.diary-detail-container .diary-container {
+    height: 90vh;
+}
+
 .diary-detail-container .diary-container .diary-date {
     font-size: 1.5rem;
     font-weight: bold;
@@ -52,6 +56,8 @@
     text-align: left;
     font-size: 1.5rem;
     line-height: 1.5;
+    height: 300px;
+    overflow: auto;
 }
 .gpt-content > .notice {
     color: #BD71FF;
