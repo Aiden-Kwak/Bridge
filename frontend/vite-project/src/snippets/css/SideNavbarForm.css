@@ -13,7 +13,6 @@
     display: flex;
     align-items: center;
     padding: 10px 20px;
-    margin-left: .5rem;
     margin-bottom: 1rem;
     text-decoration: none;
     color: #000;
@@ -31,4 +30,5 @@
 
 .nav-item:hover {
     background-color: #ddd;
+    transition: background-color 0.3s;
 }

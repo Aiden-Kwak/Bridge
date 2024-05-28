@@ -7,12 +7,12 @@ function TopNavbarForm(){
     return (
         <div className="topnav-container">
             <div className='top'>
-                <Link to="/" className="nav-item">
+                <Link to="/" className="top-nav-item">
                     <div className="logo">
                         Bridge
                     </div>
                 </Link>
-                <Link to="/" className="nav-item">
+                <Link to="/profile" className="top-nav-item">
                     <div className="profile-icon">
                         <img src={profileLogo} alt="Profile" />
                     </div>

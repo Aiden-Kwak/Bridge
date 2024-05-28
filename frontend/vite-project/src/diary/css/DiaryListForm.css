@@ -21,6 +21,9 @@
     padding: 15px;
     margin-bottom: 3rem;
 }
+.diary-list-container .search-bar input{
+    width: 100%;
+}
 .diary-list-container .search-bar .search-icon{
     margin-right: 10px;
     height: 20px;

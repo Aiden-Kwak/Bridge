@@ -19,7 +19,12 @@
     padding: 1rem;
     color: #000000;
     border-bottom: 1px solid #EAD9FF;
-    margin-bottom: 1rem;
+    padding-bottom: 2rem;
+}
+.diary-container .diary-item:hover {
+    background-color: #EAD9FF;
+    transition: background-color 0.5s;
+
 }
 .diary-container .item-top-thread {
     display: flex;
