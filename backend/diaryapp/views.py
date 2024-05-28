@@ -12,16 +12,14 @@ from langchain.prompts.chat import (
     HumanMessagePromptTemplate,
 )
 from langchain.chains import LLMChain
-#from decouple import config
+
 import requests
-import datetime
+from datetime import datetime, date
 from django.http import JsonResponse
 
-# Load OPENAI_API_KEY from environment variables
-#OPENAI_API_KEY = config('OPENAI_API_KEY')
+from django.db.models import Q
 
 
-#인증된 사용자가 작성한 모든 일기를 가져오는 기능을 처리
 class UserDiaryListAPIView(APIView):
     permission_classes = [IsAuthenticated]
 
@@ -201,9 +199,37 @@ class SearchDiaryTitleAPIView(APIView):
 class SearchDiaryDateAPIView(APIView):
     permission_classes = [IsAuthenticated]
 
-    def get(self, request,date):
+    def get(self, request, date):
         #query = request.GET.get('query', '')  # 검색어
         diaries = DiaryApp.objects.filter(created_at__date=date,writer=request.user)
+        serializer = DiarySerializer(diaries, many=True)
+        return Response(serializer.data)
+    
+class SearchDiaryMonthAPIView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        year = request.GET.get('year')
+        month = request.GET.get('month')
+        if not year or not month:
+            return Response({"error": "Year and month are required parameters."}, status=400)
+        try:
+            year = int(year)
+            month = int(month)
+        except ValueError:
+            return Response({"error": "Year and month must be integers."}, status=400)
+
+        start_date = datetime(year, month, 1)
+        if month == 12:
+            end_date = datetime(year + 1, 1, 1)
+        else:
+            end_date = datetime(year, month + 1, 1)
+
+        diaries = DiaryApp.objects.filter(
+            Q(created_at__gte=start_date) & 
+            Q(created_at__lt=end_date) &
+            Q(writer=request.user)
+        )
         serializer = DiarySerializer(diaries, many=True)
         return Response(serializer.data)
 
