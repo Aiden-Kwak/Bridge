@@ -2,9 +2,11 @@ import React, {useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import TopNavbarForm from '../snippets/TopNavbarForm';
 import SideNavbarForm from '../snippets/SideNavbarForm';
+import BackButtonSnippet from '../snippets/BackButtonSnippet';
 import './css/DiaryWriteForm.css';
 import axios from 'axios';
 import { getCookie } from '../utils';
+import SubmitIcon from '../assets/icon/check.svg';
 
 
 
@@ -49,7 +51,7 @@ function DiaryWriteForm() {
             });
             const pk = response.data.id;
             if (pk) {
-                navigate(`/user-diary/${pk}`);
+                navigate(`/diary/${pk}`);
             } else {
                 console.error('응답에서 일기 ID(pk)를 찾을 수 없습니다.');
             }
@@ -109,13 +111,13 @@ function DiaryWriteForm() {
                                 />
                             </div>*/}
                             <div className='bottom-container'>
-                                <div className='back-btn'>
-                                    <p>&lt;</p>
-                                </div>
+                                <BackButtonSnippet />
                                 <div className="content-counter">
                                     {content.length}/{maxLength}
                                 </div>
-                                <button type="submit">저장</button>
+                                <button type="submit" className="submit-button">
+                                    <img src={SubmitIcon} alt="Submit" className="submit-icon" />
+                                </button>
                             </div>
                         </form>
                         

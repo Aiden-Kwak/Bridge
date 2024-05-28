@@ -14,7 +14,7 @@ from langchain.prompts.chat import (
 from langchain.chains import LLMChain
 
 import requests
-from datetime import datetime, date
+from datetime import datetime, date, timedelta
 from django.http import JsonResponse
 
 from django.db.models import Q
@@ -50,8 +50,8 @@ class CheckWeatherAPIView(APIView):
             response = requests.get(temp_url)
         data = response.json()
         if 'list' in data:
-            today = datetime.datetime.today().date()
-            today_weather_list = [entry for entry in data['list'] if datetime.datetime.fromtimestamp(entry['dt']).date() == today]
+            today = datetime.today().date()
+            today_weather_list = [entry for entry in data['list'] if datetime.fromtimestamp(entry['dt']).date() == today]
             average_temp = sum(entry['main']['temp'] for entry in today_weather_list) / len(today_weather_list)
             weather_descriptions = [entry['weather'][0]['description'] for entry in today_weather_list]
             main_weather = max(set(weather_descriptions), key=weather_descriptions.count)
@@ -75,10 +75,10 @@ class CheckWeatherAPIView(APIView):
             temp_url = f'http://api.openweathermap.org/data/2.5/forecast?q=seoul,{self.country_code}&appid={self.API_KEY}&units=metric'
             response = requests.get(temp_url)
         data = response.json()
-        today = datetime.datetime.today()
-        tomorrow = today + datetime.timedelta(days=1)
+        today = datetime.today()
+        tomorrow = today + timedelta(days=1)
         tomorrow_date = tomorrow.date()
-        tomorrow_weather_list = [entry for entry in data['list'] if datetime.datetime.fromtimestamp(entry['dt']).date() == tomorrow_date]
+        tomorrow_weather_list = [entry for entry in data['list'] if datetime.fromtimestamp(entry['dt']).date() == tomorrow_date]
         average_temp = sum(entry['main']['temp'] for entry in tomorrow_weather_list) / len(tomorrow_weather_list)
         weather_descriptions = [entry['weather'][0]['description'] for entry in tomorrow_weather_list]
         main_weather = max(set(weather_descriptions), key=weather_descriptions.count)
