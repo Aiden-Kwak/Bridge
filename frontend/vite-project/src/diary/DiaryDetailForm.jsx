@@ -23,8 +23,6 @@ function DiaryDetailForm(){
     const [gpt_advise, setGpt_advise] = useState('');
     const [gpt_content, setGpt_content] = useState('');
     const [gpt_recommend, setGpt_recommend] = useState('');
-    console.log(formatDate(DiaryListProps.propDiary.created_at));
-    console.log(DiaryListProps.propDiary);
 
     useEffect(() => {
         setDate(formatDate(DiaryListProps.propDiary.created_at));

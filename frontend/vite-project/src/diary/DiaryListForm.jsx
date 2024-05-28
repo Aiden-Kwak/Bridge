@@ -13,9 +13,7 @@ import searchIcon from '../assets/icon/searchBar.svg'
 function DiaryListForm() {
     const [diaries, setDiary] = useState([]);
     const [search, setSearch] = useState('');
-    const truncate = (str) => {
-        return str?.length < 50 ? str : str.substr(0, 49) + "...";
-    };
+
     useEffect(() => {
         handleInputChange();
     }, [search]);
