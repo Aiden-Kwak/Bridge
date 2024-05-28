@@ -12,14 +12,23 @@ import searchIcon from '../assets/icon/searchBar.svg'
 function DiaryListForm() {
     const [diaries, setDiary] = useState([]);
     const [search, setSearch] = useState('');
-
     const truncate = (str) => {
         return str?.length < 50 ? str : str.substr(0, 49) + "...";
     };
+    useEffect(() => {
+        handleInputChange();
+    }, [search]);
+
+    useEffect(() => {
+        getList();
+    }, []);
+
+    const handleSearchChange = (e) => {
+        setSearch(e.target.value);
+    }
     
     const handleInputChange = (e) => {
         const csrftoken = getCookie('csrftoken');
-        setSearch(e.target.value);
         axios.get(`http://localhost:8000/api/diary/search-title/${search}/`,{
             withCredentials: true,
             headers:{
@@ -27,31 +36,17 @@ function DiaryListForm() {
                 'Content-Type': 'application/json',
             }
         })
-            .then(response=>{
-                console.log(response.length);
-                if (response.length==0){
-                    getList();
-                }else{                
-                    setDiary(response.data);
-                }
-            })
-            .catch(error => {
+        .then(response=>{
+            if (search.length<=1){
                 getList();
-            })
+            }else{                
+                setDiary(response.data);
+            }
+        })
+        .catch(error => {
+            getList();
+        })
     } 
-
-/*
-    const searchTitle = async () => {
-        try{
-            const response = await axios.get(`http://localhost:8000/api/diary/search-title/${search}`);
-            setDiary(response.data);
-        } catch (error){
-            setDiary("");
-        }
-    }
-   },[search]);
-}
-*/
     
 
     const getList =  async () => {
@@ -65,16 +60,12 @@ function DiaryListForm() {
             }
         });
         setDiary(response.data);
-        console.log(response.data)
-    } catch(error) {
-        console.error('Error fetching the list:',error);
+        }catch(error) {
+            console.error('Error fetching the list:',error);
         }
     };
-    useEffect(() => {
-        getList();
-    }, []);
     
-    console.log('test:', diaries)
+
     return (
         <div className='diary-list-container'>
             <TopNavbarForm />
@@ -86,8 +77,8 @@ function DiaryListForm() {
                         <input 
                                 type="text" 
                                 value={search} 
-                                onChange={handleInputChange} 
-                                placeholder="일기제목을 입력하세요" 
+                                onChange={handleSearchChange} 
+                                placeholder="제목으로 검색해보세요!" 
                         />
                     </div>
                     <div className='diary-container'>
