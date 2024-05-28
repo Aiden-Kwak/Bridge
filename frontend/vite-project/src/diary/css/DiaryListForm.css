@@ -8,11 +8,6 @@
     flex: 1;
 }
 
-.diary-container .diary-item > .item-title{
-    font-size: 2rem;
-    color: black;
-}
-
 .diary-list-container .search-bar{
     margin-top: 3rem;
     width: 95%;
@@ -41,21 +36,4 @@
     text-align: center;
     margin-top: 1000px;
     font-size: 1.2rem;
-}
-
-.diary-list-container .diary-item{
-    text-align: center;
-    display: flex;
-    padding: .5rem;
-    margin-bottom: 2rem;
-    flex-direction:row;
-    border-bottom: 1px solid #e2e2e2;
-    flex: 1;
-}
-
-.diary-list-container .diary-item p {
-    padding: 0 1rem;
-    display: flex;
-    font-size : 1.5rem;
-    color : #d3d3d3;
 }

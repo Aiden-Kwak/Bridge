@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import TopNavbarForm from '../snippets/TopNavbarForm';
 import SideNavbarForm  from '../snippets/SideNavbarForm';
+import DiaryListSnippet from '../snippets/DiaryListSnippet';
 import { getCookie } from '../utils';
 import './css/DiaryListForm.css';
 import {useParams} from 'react-router-dom';
@@ -47,7 +48,6 @@ function DiaryListForm() {
             getList();
         })
     } 
-    
 
     const getList =  async () => {
         const csrftoken = getCookie('csrftoken');
@@ -64,7 +64,6 @@ function DiaryListForm() {
             console.error('Error fetching the list:',error);
         }
     };
-    
 
     return (
         <div className='diary-list-container'>
@@ -81,27 +80,11 @@ function DiaryListForm() {
                                 placeholder="제목으로 검색해보세요!" 
                         />
                     </div>
-                    <div className='diary-container'>
-                        {diaries.map((diary) => (
-                            <div key={diary.id}>
-                                <Link to={`/diary/${diary.id}`} state={{propDiary: diary}}>
-                                    <div className='diary-item'>
-                                        <p class='item-title'>{diary.title}</p>
-                                        <div>
-                                            <p class='item-date'>{diary.created_at.split('T')[0]}</p>
-                                            <p class='item-content'>{truncate(diary.content)}</p>
-                                        </div>
-                                    </div>
-                                </Link>
-                            </div>
-                        ))}
-                    </div>
+                    <DiaryListSnippet diaries={diaries} />
                 </div>
             </div>
         </div>
     );
-
-
 }
 
 export default DiaryListForm;
