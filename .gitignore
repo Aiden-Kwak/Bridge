@@ -4,5 +4,5 @@ db.sqlite3
 .idea/
 __pycache__/
 .DS_Store
-*.yaml
+computer-system-team-06.yaml
 .kube-env-generic
