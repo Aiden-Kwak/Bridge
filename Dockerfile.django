@@ -21,4 +21,4 @@ RUN pip install gunicorn
 
 EXPOSE 8000
 # 집에 좀 가자..
-CMD ["bash", "-c", "python manage.py collectstatic --noinput --settings=center.settings.deploy && python manage.py migrate --settings=center.settings.deploy && gunicorn website.wsgi --env DJANGO_SETTINGS_MODULE=center.settings.deploy --bind 0.0.0.0:8000"]
+CMD ["bash", "-c", "python manage.py collectstatic --noinput --settings=center.settings.deploy && python manage.py migrate --settings=center.settings.deploy && gunicorn center.wsgi --env DJANGO_SETTINGS_MODULE=center.settings.deploy --bind 0.0.0.0:8000"]
