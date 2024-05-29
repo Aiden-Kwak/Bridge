@@ -1,0 +1,31 @@
+# Node 이미지를 기반으로 함
+FROM node:21 as builder
+
+WORKDIR /app
+
+# 재실행용
+RUN echo "testing:1"
+
+# GitHub에서 프로젝트 클론
+RUN git clone https://github.com/Aiden-Kwak/Bridge.git
+
+WORKDIR /app/Bridge/frontend/vite-project
+
+RUN npm cache clean --force
+# 의존성 설치
+RUN npm install
+
+# React 애플리케이션 빌드
+RUN npm run build
+
+# Nginx를 사용하여 React 빌드 파일 제공
+FROM nginx:1.19.5 as production-stage
+
+# 빌드 단계에서 생성된 빌드 파일을 Nginx 서버로 복사
+COPY --from=builder /app/Bridge/frontend/build /usr/share/nginx/html
+
+# 80 포트 열기
+EXPOSE 80
+
+# Nginx 실행
+CMD ["nginx", "-g", "daemon off;"]
