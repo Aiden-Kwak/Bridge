@@ -11,14 +11,14 @@ WORKDIR /app/Bridge
 
 WORKDIR /app/Bridge/backend
 
-RUN pip install --upgrade pip
+RUN pip install --upgrade pip && \
+    pip install -r requirements.txt && \
+    rm -rf /root/.cache/pip
 
-RUN pip install -r requirements.txt
-
-ENV DJANGO_SETTINGS_MODULE=backend.settings.deploy
+ENV DJANGO_SETTINGS_MODULE=center.settings.deploy
 
 RUN pip install gunicorn
 
 EXPOSE 8000
 # 집에 좀 가자..
-CMD ["bash", "-c", "python manage.py collectstatic --noinput --settings=website.settings.deploy && python manage.py migrate --settings=website.settings.deploy && gunicorn website.wsgi --env DJANGO_SETTINGS_MODULE=website.settings.deploy --bind 0.0.0.0:8000"]
+CMD ["bash", "-c", "python manage.py collectstatic --noinput --settings=center.settings.deploy && python manage.py migrate --settings=center.settings.deploy && gunicorn website.wsgi --env DJANGO_SETTINGS_MODULE=center.settings.deploy --bind 0.0.0.0:8000"]
