@@ -11,6 +11,8 @@ WORKDIR /app/Bridge
 
 WORKDIR /app/Bridge/backend
 
+RUN mkdir -p /app/Bridge/backend/static /app/Bridge/backend/staticfiles
+
 RUN pip install --upgrade pip && \
     pip install -r requirements.txt && \
     rm -rf /root/.cache/pip
