@@ -22,7 +22,7 @@ RUN npm run build
 FROM nginx:1.19.5 as production-stage
 
 # 빌드 단계에서 생성된 빌드 파일을 Nginx 서버로 복사
-COPY --from=builder /app/Bridge/frontend/build /usr/share/nginx/html
+COPY --from=builder /app/Bridge/frontend/vite-project/dist /usr/share/nginx/html
 
 # 80 포트 열기
 EXPOSE 80
