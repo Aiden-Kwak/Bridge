@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import TopNavbarForm from '../snippets/TopNavbarForm';
 import SideNavbarForm from '../snippets/SideNavbarForm';
 import BackButtonSnippet from '../snippets/BackButtonSnippet';
+import DiaryCreateLoadingForm from '../snippets/DiaryCreateLodingForm';
 import './css/DiaryWriteForm.css';
 import axios from 'axios';
 import { getCookie } from '../utils';
@@ -13,7 +14,8 @@ import SubmitIcon from '../assets/icon/check.svg';
 function DiaryWriteForm() {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
-    const [city, setCity] = useState(''); // 임시영역(지역) 추가
+    const [city, setCity] = useState(''); // 임시영역(지역)
+    const [isLoading, setIsLoading] = useState(false);
     const maxLength = 1000;
     const navigate = useNavigate();
 
@@ -26,6 +28,7 @@ function DiaryWriteForm() {
     };
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setIsLoading(true);
         const formData = new FormData();
         formData.append('title', title);
         formData.append('content', content);
@@ -57,6 +60,8 @@ function DiaryWriteForm() {
             }
         } catch (error) {
             console.error('일기 제출 중 오류가 발생했습니다:', error);
+        } finally {
+            setIsLoading(false);
         }
     };
 
@@ -74,6 +79,7 @@ function DiaryWriteForm() {
             <div className="content-container">
                 <SideNavbarForm />
                 <div className="content">
+                    {isLoading && <DiaryCreateLoadingForm />}
                     <div className="diary-write-form">
                         <p className='today-date'>{getFormattedToday()}</p>
                         <form onSubmit={handleSubmit}>

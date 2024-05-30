@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import TopNavbarForm from '../snippets/TopNavbarForm';
 import SideNavbarForm  from '../snippets/SideNavbarForm';
 import './css/DiaryDetailForm.css';
+import axios from 'axios';
+import { getCookie } from '../utils';
 
-function DiaryDetailForm(){
-
-    const location=useLocation();
-    const DiaryListProps=location.state;
+function DiaryDetailForm() {
+    const location = useLocation();
+    const DiaryListProps = location.state;
+    const { id } = useParams();
 
     const formatDate = (dateString) => {
         const date = new Date(dateString);
         const year = date.getFullYear();
-        const month = String(date.getMonth() + 1).padStart(2, '0'); // 월은 0부터 시작하므로 +1 필요
+        const month = String(date.getMonth() + 1).padStart(2, '0');
         const day = String(date.getDate()).padStart(2, '0');
         return `${year}.${month}.${day}`;
     };
@@ -25,19 +27,44 @@ function DiaryDetailForm(){
     const [gpt_recommend, setGpt_recommend] = useState('');
 
     useEffect(() => {
-        setDate(formatDate(DiaryListProps.propDiary.created_at));
-        setTitle(DiaryListProps.propDiary.title);
-        setContent(DiaryListProps.propDiary.content);
-        setGpt_advise(DiaryListProps.propDiary.gpt_advise);
-        setGpt_content(DiaryListProps.propDiary.gpt_content);
-        setGpt_recommend(DiaryListProps.propDiary.gpt_recommend);
-    }, []);
-    /*
-    propDiary: content, created_at, gpt_advise, gpt_content, gpt_recommend, id, title, writer(pk)
-    */
+        if (!DiaryListProps?.propDiary) {
+            getDetail();
+        } else {
+            const { propDiary } = DiaryListProps;
+            setDate(formatDate(propDiary.created_at));
+            setTitle(propDiary.title);
+            setContent(propDiary.content);
+            setGpt_advise(propDiary.gpt_advise);
+            setGpt_content(propDiary.gpt_content);
+            setGpt_recommend(propDiary.gpt_recommend);
+        }
+    }, [DiaryListProps]);
+
+    const getDetail = async () => {
+        const csrftoken = getCookie('csrftoken');
+        try {
+            const response = await axios.get(`http://localhost:8000/api/diary/user-diary/${id}`, {
+                withCredentials: true,
+                headers: {
+                    'X-CSRFToken': csrftoken,
+                    'Content-Type': 'application/json',
+                }
+            });
+            const diary = response.data;
+            setDate(formatDate(diary.created_at));
+            setTitle(diary.title);
+            setContent(diary.content);
+            setGpt_advise(diary.gpt_advise);
+            setGpt_content(diary.gpt_content);
+            setGpt_recommend(diary.gpt_recommend);
+        } catch (error) {
+            console.error('Error fetching the diary:', error);
+        }
+    };
+
     return (
         <div className="diary-detail-container">
-            <TopNavbarForm /> 
+            <TopNavbarForm />
             <div className='content-container'>
                 <SideNavbarForm />
                 <div className='content'>
@@ -65,7 +92,7 @@ function DiaryDetailForm(){
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
 export default DiaryDetailForm;
