@@ -1,11 +1,16 @@
-import { useEffect } from "react";
+import { useEffect, useContext } from "react";
 import { Link, useNavigate } from 'react-router-dom';
+import { UserContext } from '../UserContext';
 
 function MainPageForm() {
   const navigate = useNavigate();
-  // 접속시 바로 /로 리다이렉트
+  const { user } = useContext(UserContext);
   useEffect(() => {
-    navigate('/calendar');
+    if (!user){
+      navigate('/login');
+    } else {
+      navigate('/calendar');
+    }
   }, []);
   return (
     <div>

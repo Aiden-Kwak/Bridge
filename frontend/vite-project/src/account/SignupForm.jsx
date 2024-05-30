@@ -99,7 +99,7 @@ function SignupForm() {
                 />
                 <button className="signup-button" type="submit">회원가입</button>
                 <Link to="/login" className='login-link'>
-                <p className='signup-notice'>메일전송에는 최대 3분이 소요될 수 있습니다.<span style={{color:"#EBDBFF", marginLeft:"1rem"}}>로그인</span></p>
+                <p className='signup-notice'>메일전송에는 최대 3분이 소요될 수 있습니다.<span style={{color:"rgb(85, 26, 139)", marginLeft:"1rem"}}>로그인</span></p>
                 </Link>
             </form> 
         </div>

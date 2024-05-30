@@ -34,8 +34,12 @@
     margin-bottom: 1rem;
     padding: 12px;
     font-size: 1.2rem;
+    border: 0;
+    background: #ededed;
+    font-family: 'gangwon';
 }
 
 .login-container .login-notice {
     font-size: 1.2rem;
+    color: #000;
 }

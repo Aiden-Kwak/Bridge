@@ -25,3 +25,17 @@
     visibility: visible;
     font-size: 1rem;
 }
+
+.signup-container button {
+    margin-bottom: 1rem;
+    padding: 12px;
+    font-size: 1.2rem;
+    border: 0;
+    background: #ededed;
+    font-family: 'gangwon';
+}
+
+.signup-container .signup-notice {
+    font-size: 1.2rem;
+    color: #000;
+}

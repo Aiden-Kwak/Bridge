@@ -47,7 +47,7 @@ function LoginForm() {
             });
             localStorage.setItem('user', JSON.stringify({ username: username }));
             setUser({ username: username });
-            navigate('/');
+            navigate('/calendar');
         } catch (error) {
             if (error.response && error.response.data) {
                 // 서버로부터의 응답에 따라 오류 메시지 설정
@@ -100,7 +100,7 @@ function LoginForm() {
                 <button type="submit">로그인</button>
             </form>
             <Link to="/signup" className='signup-link'>
-                <p className='login-notice'>Bridge에 처음이신가요? <span style={{color:"#EBDBFF", marginLeft:"1rem"}}>회원가입</span></p>
+                <p className='login-notice'>Bridge에 처음이신가요? <span style={{color:"rgb(85, 26, 139)", marginLeft:"1rem"}}>회원가입</span></p>
             </Link>
         </div>    
     );
