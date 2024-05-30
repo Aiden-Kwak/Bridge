@@ -4,6 +4,7 @@ import axios from 'axios';
 import { UserContext } from '../UserContext';
 import defaultImg from '../assets/icon/userInform.svg';
 import {getCookie} from '../utils';
+import { URLManagement } from '../utils';
 import './css/ProfileForm.css';
 
 import TopNavbarForm from '../snippets/TopNavbarForm';
@@ -21,6 +22,7 @@ function ProfileForm() {
 
     const { user } = useContext(UserContext);
     const navigate = useNavigate();
+    const API_BASE_URL = URLManagement();
 
     useEffect(() => {
         const storedUser = localStorage.getItem('user');
@@ -34,7 +36,7 @@ function ProfileForm() {
     const fetchProfile = async () => {
         try {
             console.log(user)
-            const response = await axios.get(`http://localhost:8000/api/account/profile/${user.username}`, {
+            const response = await axios.get(`${API_BASE_URL}/api/account/profile/${user.username}`, {
                 withCredentials: true
             });
             setProfile(response.data);
@@ -75,7 +77,7 @@ function ProfileForm() {
             if (profile.profilePic) {
                 formData.append('profile_pic', profile.profilePic);
             }
-            await axios.put(`http://localhost:8000/api/account/profile/${user.username}`, formData, {
+            await axios.put(`${API_BASE_URL}/api/account/profile/${user.username}`, formData, {
                 headers: {
                     'X-CSRFToken': csrfToken
                 },
@@ -123,7 +125,7 @@ function ProfileForm() {
                     <form onSubmit={handleSubmit}>
                         <div className='profile-header'>
                             {profile.profile_pic != '/media/default.png' ? 
-                                <img src={profile.profilePicPreview||`http://localhost:8000${profile.profile_pic}`} alt="프로필 사진" /> : 
+                                <img src={profile.profilePicPreview||`${API_BASE_URL}${profile.profile_pic}`} alt="프로필 사진" /> : 
                                 <img src={profile.profilePicPreview||defaultImg} alt="프로필 사진" />
                             }
                             <input

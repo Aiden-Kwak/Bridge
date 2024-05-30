@@ -8,11 +8,13 @@ import { getCookie } from '../utils';
 import './css/DiaryListForm.css';
 import {useParams} from 'react-router-dom';
 import searchIcon from '../assets/icon/searchBar.svg'
+import { URLManagement } from '../utils';
 
 
 function DiaryListForm() {
     const [diaries, setDiary] = useState([]);
     const [search, setSearch] = useState('');
+    const API_BASE_URL = URLManagement();
 
     useEffect(() => {
         handleInputChange();
@@ -50,7 +52,7 @@ function DiaryListForm() {
     const getList =  async () => {
         const csrftoken = getCookie('csrftoken');
         try{
-        const response = await axios.get('http://localhost:8000/api/diary/list',{
+        const response = await axios.get(`${API_BASE_URL}/api/diary/list`,{
             withCredentials: true,
             headers:{
                 'X-CSRFToken': csrftoken,

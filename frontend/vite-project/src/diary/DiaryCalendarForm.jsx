@@ -6,11 +6,13 @@ import DiaryListSnippet from '../snippets/DiaryListSnippet';
 import './css/DiaryCalendarForm.css';
 import previousIcon from '../assets/icon/calendarLeft.svg';
 import nextIcon from '../assets/icon/calendarRight.svg';
+import { URLManagement } from '../utils';
 
 function DiaryCalendarForm() {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [diaries, setDiaries] = useState([]);
   const [selectedDateDiaries, setSelectedDateDiaries] = useState([]);
+  const API_BASE_URL = URLManagement();
 
 
   useEffect(() => {
@@ -27,7 +29,7 @@ function DiaryCalendarForm() {
 
   const fetchMonthlyDiaries = async (year, month) => {
     try {
-      const response = await axios.get('http://localhost:8000/api/diary/search-month/', {
+      const response = await axios.get(`${API_BASE_URL}/api/diary/search-month/`, {
         params: { year, month },
         withCredentials: true,
       });

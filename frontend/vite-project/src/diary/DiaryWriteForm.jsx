@@ -7,6 +7,7 @@ import DiaryCreateLoadingForm from '../snippets/DiaryCreateLodingForm';
 import './css/DiaryWriteForm.css';
 import axios from 'axios';
 import { getCookie } from '../utils';
+import { URLManagement } from '../utils';
 import SubmitIcon from '../assets/icon/check.svg';
 
 
@@ -18,6 +19,7 @@ function DiaryWriteForm() {
     const [isLoading, setIsLoading] = useState(false);
     const maxLength = 1000;
     const navigate = useNavigate();
+    const API_BASE_URL = URLManagement();
 
 
     const handleContentTextareaChange = (e) => {
@@ -41,7 +43,7 @@ function DiaryWriteForm() {
 
         try {
             const csrftoken = getCookie('csrftoken');
-            const response = await axios.post('http://localhost:8000/api/diary/create-diary', {
+            const response = await axios.post(`${API_BASE_URL}/api/diary/create-diary`, {
                 title,
                 content,
                 city

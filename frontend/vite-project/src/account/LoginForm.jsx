@@ -4,6 +4,7 @@ import {getCookie, removeCookie} from '../utils';
 import calanderRight from '../assets/icon/calendarRight.svg';
 import { Link, useNavigate } from 'react-router-dom';
 import { UserContext } from '../UserContext';
+import { URLManagement } from '../utils';
 import './css/LoginForm.css';
 
 function LoginForm() {
@@ -14,6 +15,7 @@ function LoginForm() {
     const { setUser } = useContext(UserContext);
     const { user } = useContext(UserContext);
     const [tempMessage, setTempMessage] = useState('');
+    const API_BASE_URL = URLManagement();
 
     useEffect(() => {
         const storedUser = localStorage.getItem('user');
@@ -36,7 +38,7 @@ function LoginForm() {
         console.log('csrfToken:', csrfToken);
         axios.defaults.withCredentials = true;
         try {
-            const response = await axios.post('http://localhost:8000/api/account/login/', {
+            const response = await axios.post(`${API_BASE_URL}/api/account/login/`, {
                 username,
                 password
             }, {

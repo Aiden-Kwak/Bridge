@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { getCookie } from '../utils';
+import { URLManagement } from '../utils';
 import './css/SignupForm.css';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -13,6 +14,8 @@ function SignupForm() {
     const [error, setError] = useState('');
     const [tempMessage, setTempMessage] = useState('');
 
+    const API_BASE_URL = URLManagement();
+
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
@@ -23,7 +26,7 @@ function SignupForm() {
         const csrfToken=getCookie('csrftoken');
         try {
             setTempMessage("인증메일을 전송중입니다. 잠시만 기다려주세요");
-            const response = await axios.post('http://127.0.0.1:8000/api/account/signup/', formData, {
+            const response = await axios.post(`${API_BASE_URL}/api/account/signup/`, formData, {
                 headers: {
                     'Content-Type': 'application/json',
                     'X-CSRFToken': csrfToken,

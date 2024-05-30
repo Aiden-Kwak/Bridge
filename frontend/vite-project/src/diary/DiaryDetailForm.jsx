@@ -5,6 +5,7 @@ import SideNavbarForm  from '../snippets/SideNavbarForm';
 import './css/DiaryDetailForm.css';
 import axios from 'axios';
 import { getCookie } from '../utils';
+import { URLManagement } from '../utils';
 
 function DiaryDetailForm() {
     const location = useLocation();
@@ -25,6 +26,7 @@ function DiaryDetailForm() {
     const [gpt_advise, setGpt_advise] = useState('');
     const [gpt_content, setGpt_content] = useState('');
     const [gpt_recommend, setGpt_recommend] = useState('');
+    const API_BASE_URL = URLManagement();
 
     useEffect(() => {
         if (!DiaryListProps?.propDiary) {
@@ -43,7 +45,7 @@ function DiaryDetailForm() {
     const getDetail = async () => {
         const csrftoken = getCookie('csrftoken');
         try {
-            const response = await axios.get(`http://localhost:8000/api/diary/user-diary/${id}`, {
+            const response = await axios.get(`${API_BASE_URL}/api/diary/user-diary/${id}`, {
                 withCredentials: true,
                 headers: {
                     'X-CSRFToken': csrftoken,
