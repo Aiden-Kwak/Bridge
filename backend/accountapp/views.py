@@ -72,14 +72,14 @@ class ActivateAccountAPI(APIView):
             if settings.DEBUG:
                 return HttpResponseRedirect('http://localhost:5173/login')
             else:
-                return HttpResponseRedirect('https://bridge.com/login')
+                return HttpResponseRedirect('https://computer-system-team-06.dev.mobilex.kr/login')
         else:
             if user is not None and user.is_active==False:
                 user.delete()
             if settings.DEBUG:
                 return HttpResponseRedirect('http://localhost:5173/login')
             else:
-                return HttpResponseRedirect('https://bridge.com/login')
+                return HttpResponseRedirect('https://computer-system-team-06.dev.mobilex.kr/login')
         
 # 로그인
 class LoginAPI(APIView):
