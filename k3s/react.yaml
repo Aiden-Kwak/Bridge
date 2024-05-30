@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: server
-          image: duckracoon/bridge-django-image:v0.1
+          image: duckracoon/bridge-react-image:v0.1
           env:
             - name: FRONTEND_CLIENT__BASE_URL
               value: http://backend:8000
