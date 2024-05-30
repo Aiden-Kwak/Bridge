@@ -4,6 +4,8 @@ import TopNavbarForm from '../snippets/TopNavbarForm';
 import SideNavbarForm from '../snippets/SideNavbarForm';
 import DiaryListSnippet from '../snippets/DiaryListSnippet';
 import './css/DiaryCalendarForm.css';
+import previousIcon from '../assets/icon/calendarLeft.svg';
+import nextIcon from '../assets/icon/calendarRight.svg';
 
 function DiaryCalendarForm() {
   const [currentDate, setCurrentDate] = useState(new Date());
@@ -96,9 +98,9 @@ function DiaryCalendarForm() {
         <div className='content'>
           <div className="calendar-container">
             <div className="calendar-header">
-              <button onClick={previousMonth}>&lt;</button>
+              <button onClick={previousMonth}><img src={previousIcon} alt="icon" /></button>
               <span>{getMonthName(currentDate)} {currentDate.getFullYear()}</span>
-              <button onClick={nextMonth}>&gt;</button>
+              <button onClick={nextMonth}><img src={nextIcon} alt="icon" /></button>
             </div>
             <div className="calendar-grid">
               <div className="calendar-day-name">Sun</div>

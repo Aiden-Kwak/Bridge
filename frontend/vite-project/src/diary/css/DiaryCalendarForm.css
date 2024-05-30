@@ -41,6 +41,13 @@
   font-size: 2rem;
 }
 
+.calendar-header button img {
+  width: 25px;
+  height: 25px;
+
+}
+
+
 .calendar-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
