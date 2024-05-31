@@ -28,6 +28,14 @@ spec:
             - name: http
               protocol: TCP
               containerPort: 8501
+          volumeMounts:
+            - name: media-volume
+              mountPath: /data/media
+      volumes:
+        - name: media-volume
+          hostPath:
+            path: /data/media
+            type: Directory
 ---
 apiVersion: v1
 kind: Service

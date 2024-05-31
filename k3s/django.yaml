@@ -46,6 +46,8 @@ spec:
             - name: secret-volume
               mountPath: /etc/secrets
               readOnly: true
+            - name: media-volume
+              mountPath: /data/media
       volumes:
         - name: secret-volume
           secret:
@@ -57,6 +59,10 @@ spec:
                 path: OPEN_API_KEY
               - key: EMAIL_HOST_PASSWORD
                 path: EMAIL_HOST_PASSWORD
+        - name: media-volume
+          hostPath:
+            path: /data/media
+            type: Directory
       imagePullSecrets:
         - name: regcred
 ---
