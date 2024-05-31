@@ -1,0 +1,141 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  namespace: computer-system-team-06
+  labels:
+    app: backend
+    dash.ulagbulag.io/subject: mobilex-exp
+spec:
+  selector:
+    matchLabels:
+      app: backend
+      dash.ulagbulag.io/subject: mobilex-exp
+  template:
+    metadata:
+      labels:
+        app: backend
+        dash.ulagbulag.io/subject: mobilex-exp
+    spec:
+      containers:
+        - name: server
+          image: duckracoon/bridge-django-image:v1.6
+          env:
+            - name: DJANGO_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: bridge-secrets
+                  key: DJANGO_SECRET_KEY
+            - name: OPEN_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: bridge-secrets
+                  key: OPEN_API_KEY
+            - name: EMAIL_HOST_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: bridge-secrets
+                  key: EMAIL_HOST_PASSWORD
+            - name: BASE_URL
+              value: /api/v1
+          ports:
+            - name: http
+              protocol: TCP
+              containerPort: 8000
+          volumeMounts:
+            - name: secret-volume
+              mountPath: /etc/secrets
+              readOnly: true
+            #- name: media-volume
+            #  mountPath: /data/media
+      volumes:
+        - name: secret-volume
+          secret:
+            secretName: bridge-secrets
+            items:
+              - key: DJANGO_SECRET_KEY
+                path: DJANGO_SECRET_KEY
+              - key: OPEN_API_KEY
+                path: OPEN_API_KEY
+              - key: EMAIL_HOST_PASSWORD
+                path: EMAIL_HOST_PASSWORD
+        #- name: media-volume
+        #  hostPath:
+        #    path: /data/media
+        #    type: Directory
+      imagePullSecrets:
+        - name: regcred
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+  namespace: computer-system-team-06
+  labels:
+    app: backend
+    dash.ulagbulag.io/subject: mobilex-exp
+spec:
+  type: ClusterIP
+  selector:
+    app: backend
+  ports:
+    - name: http
+      protocol: TCP
+      port: 8000
+      targetPort: 8000
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  namespace: computer-system-team-06
+  labels:
+    app: frontend
+    dash.ulagbulag.io/subject: mobilex-exp
+spec:
+  selector:
+    matchLabels:
+      app: frontend
+      dash.ulagbulag.io/subject: mobilex-exp
+  template:
+    metadata:
+      labels:
+        app: frontend
+        dash.ulagbulag.io/subject: mobilex-exp
+    spec:
+      containers:
+        - name: server
+          image: duckracoon/bridge-react-image:v1.5
+          env:
+            - name: FRONTEND_CLIENT__BASE_URL
+              value: http://backend:8000
+          ports:
+            - name: http
+              protocol: TCP
+              containerPort: 8501
+          #volumeMounts:
+          #  - name: media-volume
+          #    mountPath: /data/media
+      #volumes:
+      #  - name: media-volume
+      #    hostPath:
+      #      path: /data/media
+      #      type: Directory
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend
+  namespace: computer-system-team-06
+  labels:
+    app: frontend
+    dash.ulagbulag.io/subject: mobilex-exp
+spec:
+  type: ClusterIP
+  selector:
+    app: frontend
+  ports:
+    - name: http
+      protocol: TCP
+      port: 8501
+      targetPort: 8501
