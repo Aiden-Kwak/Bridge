@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import TopNavbarForm from '../snippets/TopNavbarForm';
 import SideNavbarForm from '../snippets/SideNavbarForm';
@@ -10,8 +10,6 @@ import { getCookie } from '../utils';
 import { URLManagement } from '../utils';
 import SubmitIcon from '../assets/icon/check.svg';
 
-
-
 function DiaryWriteForm() {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
@@ -21,13 +19,13 @@ function DiaryWriteForm() {
     const navigate = useNavigate();
     const API_BASE_URL = URLManagement();
 
-
     const handleContentTextareaChange = (e) => {
         const newValue = e.target.value;
         if (newValue.length <= maxLength) {
             setContent(e.target.value);
         }
     };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsLoading(true);
@@ -38,6 +36,7 @@ function DiaryWriteForm() {
         const user = localStorage.getItem('user');
         if (!user) {
             console.error('로그인이 필요합니다.');
+            setIsLoading(false);
             return;
         }
 
@@ -59,10 +58,10 @@ function DiaryWriteForm() {
                 navigate(`/diary/${pk}`);
             } else {
                 console.error('응답에서 일기 ID(pk)를 찾을 수 없습니다.');
+                setIsLoading(false);
             }
         } catch (error) {
             console.error('일기 제출 중 오류가 발생했습니다:', error);
-        } finally {
             setIsLoading(false);
         }
     };
@@ -94,7 +93,8 @@ function DiaryWriteForm() {
                                     value={title}
                                     placeholder='제목을 입력하세요!'
                                     onChange={(e) => setTitle(e.target.value)}
-                                    />
+                                    disabled={isLoading}
+                                />
                             </div>
                             <div className="form-group">
                                 {/*<label htmlFor="content">내용</label>*/}
@@ -105,6 +105,7 @@ function DiaryWriteForm() {
                                     placeholder='오늘은 어떤 일이 있었나요?'
                                     onChange={handleContentTextareaChange}
                                     maxLength={maxLength}
+                                    disabled={isLoading}
                                 ></textarea>
                             </div>
                             {/*
@@ -116,6 +117,7 @@ function DiaryWriteForm() {
                                     name="city" 
                                     value={city}
                                     onChange={(e) => setCity(e.target.value)}
+                                    disabled={isLoading} // 로딩 중일 때 비활성화
                                 />
                             </div>*/}
                             <div className='bottom-container'>
@@ -123,12 +125,11 @@ function DiaryWriteForm() {
                                 <div className="content-counter">
                                     {content.length}/{maxLength}
                                 </div>
-                                <button type="submit" className="submit-button">
+                                <button type="submit" className="submit-button" disabled={isLoading}>
                                     <img src={SubmitIcon} alt="Submit" className="submit-icon" />
                                 </button>
                             </div>
                         </form>
-                        
                     </div>
                 </div>
             </div>
