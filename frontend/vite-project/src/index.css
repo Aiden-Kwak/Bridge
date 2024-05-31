@@ -55,6 +55,12 @@ input {
 input:focus {
   outline: none;
 }
+input[type="password"] {
+  font-family: '굴림';
+}
+input[type="password"]::placeholder {
+  font-family: 'gangwon';
+}
 
 h1 {
   font-size: 3.2em;

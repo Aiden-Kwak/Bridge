@@ -63,7 +63,7 @@
 .calendar-day.day-highlight {
   background-color: #EAD9FF;
   border-radius: 3px; 
-  margin: 0 1.8rem;
+  margin: 0 3rem;
   border-radius: 1rem;
 }
 .calendar-day.day-highlight:hover {

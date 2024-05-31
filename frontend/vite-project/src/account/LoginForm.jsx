@@ -91,7 +91,7 @@ function LoginForm() {
                 </div>
                 <div className='input-password'>
                     <input
-                        type="text"
+                        type="password"
                         name="password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
