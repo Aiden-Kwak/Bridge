@@ -34,8 +34,9 @@
  - k3s
  - GIST MobileX cluster
 <div>
-
 </div>
+<h2>Service Architecture</h2>
+<img src="https://github.com/Aiden-Kwak/Bridge/assets/67510613/cd92fa72-5460-470f-ae5c-09db5a879f7c">
 
 
 <h2>Member</h2>
@@ -56,7 +57,7 @@
     <tr>
       <td style="text-align:center;">김재윤</td>
       <td style="text-align:center;">
-        일기변환기능 LLM<br/>
+        일기변환기능 LLM 개발<br/>
         diaryapp 백엔드 개발<br/>
         diaryList 프론트엔드 개발참여
       </td>
@@ -72,6 +73,8 @@
     </tr>
   </tbody>
 </table>
+
+<h2>What is "Bridge" ?</h2>
 
 
 
