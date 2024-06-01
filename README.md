@@ -69,7 +69,8 @@
         UI/UX<br/>
         accountapp 프론트엔드 개발참여
       </td>
-      <td style="text-align:center;"><a href="https://github.com/bageunsoo"><img src="http://img.shields.io/badge/bageunsoo-655ced?style=social&logo=github"/></a></td>
+      <td style="text-align:center;"><a href="https://github.com/
+20215139YunSerim"><img src="http://img.shields.io/badge/20215139YunSerim-655ced?style=social&logo=github"/></a></td>
     </tr>
   </tbody>
 </table>
