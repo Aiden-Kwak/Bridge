@@ -6,7 +6,6 @@
 	</a>
 </p>
 <h2>Stack</h2>
-
 <div align="center">
   <img src="https://img.shields.io/badge/Javascript-orange?style=flat-square&logo=Javascript&logoColor=white"/></a>
   <img src="https://img.shields.io/badge/React-18.2.66-13BEF9?style=flat-square&logo=React&logoColor=white"/></a>
@@ -14,25 +13,60 @@
   <img src="https://img.shields.io/badge/Django Rest Framework-3.15.1-yellow?style=flat-square&logo=Django&logoColor=white"/></a>
   <img src="https://img.shields.io/badge/Vite-purple?style=flat-square&logo=Vite&logoColor=white"/></a>
   <img src="https://img.shields.io/badge/npm-purple?style=flat-square&logo=npm&logoColor=white"/></a>
+  <img src="https://img.shields.io/badge/Kubernetes-326ce5?style=flat-square&logo=Kubernetes&logoColor=white"/></a>
+  <img src="https://img.shields.io/badge/NGINX-009639?style=flat-square&logo=NGINX&logoColor=white"/></a>
+  <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=Docker&logoColor=white"/></a>
 </div>
 
-<h2>How to start?</h2>
+### 🖼 Frontend
 
-```bash
-(in /backend)
-( You have to make /backend/.env )
-( If u have struggle to run under commands, use python3 instead of python)
-$ python3 -m venv venv
-$ . venv/bin/activate
-$ pip install -r requirements.txt
-$ python manage.py makemigrations
-$ python manage.py migrate
-$ python manage.py runserver
+- JavaScript
+- React.js
 
-(in /frontend/vite-project)
-$ npm install
-$ npm run dev
-```
+### 💻 Backend
+
+ - Django Rest Framework
+ - Nginx
+
+### 📡 Infra
+
+ - Docker
+ - k3s
+ - GIST MobileX cluster
+<div>
+
+</div>
+
+
+<h2>Member</h2>
+<table style="width:100%">
+  <thead>
+    <tr>
+      <th style="text-align:center;">성명</th>
+      <th style="text-align:center;">담당</th>
+      <th style="text-align:center;">깃허브</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:center;">곽병혁 (leader)</td>
+      <td style="text-align:center;">FULL STACK<br/>INFRA<br/>UI/UX<br/>기획</td>
+      <td style="text-align:center;"><a href="https://github.com/Aiden-Kwak"><img src="http://img.shields.io/badge/Aiden--Kwak-655ced?style=social&logo=github"/></a></td>
+    </tr>
+    <tr>
+      <td style="text-align:center;">김재윤</td>
+      <td style="text-align:center;">LLM<br/>BE<br/>FE</td>
+      <td style="text-align:center;"><a href="https://github.com/1MTW"><img src="http://img.shields.io/badge/1MTW-655ced?style=social&logo=github"/></a></td>
+    </tr>
+    <tr>
+      <td style="text-align:center;">윤세림</td>
+      <td style="text-align:center;">UI/UX<br/>FE</td>
+      <td style="text-align:center;"><a href="https://github.com/bageunsoo"><img src="http://img.shields.io/badge/bageunsoo-655ced?style=social&logo=github"/></a></td>
+    </tr>
+  </tbody>
+</table>
+
+
 
 
 
