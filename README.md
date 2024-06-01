@@ -50,17 +50,24 @@
   <tbody>
     <tr>
       <td style="text-align:center;">곽병혁 (leader)</td>
-      <td style="text-align:center;">FULL STACK<br/>INFRA<br/>UI/UX<br/>기획</td>
+      <td style="text-align:center;">전 기능 풀스택 개발<br/>Infra 구성, 배포<br/>UI/UX<br/>서비스, 기능 기획</td>
       <td style="text-align:center;"><a href="https://github.com/Aiden-Kwak"><img src="http://img.shields.io/badge/Aiden--Kwak-655ced?style=social&logo=github"/></a></td>
     </tr>
     <tr>
       <td style="text-align:center;">김재윤</td>
-      <td style="text-align:center;">LLM<br/>BE<br/>FE</td>
+      <td style="text-align:center;">
+        일기변환기능 LLM<br/>
+        diaryapp 백엔드 개발<br/>
+        diaryList 프론트엔드 개발참여
+      </td>
       <td style="text-align:center;"><a href="https://github.com/1MTW"><img src="http://img.shields.io/badge/1MTW-655ced?style=social&logo=github"/></a></td>
     </tr>
     <tr>
       <td style="text-align:center;">윤세림</td>
-      <td style="text-align:center;">UI/UX<br/>FE</td>
+      <td style="text-align:center;">
+        UI/UX<br/>
+        accountapp 프론트엔드 개발참여
+      </td>
       <td style="text-align:center;"><a href="https://github.com/bageunsoo"><img src="http://img.shields.io/badge/bageunsoo-655ced?style=social&logo=github"/></a></td>
     </tr>
   </tbody>
