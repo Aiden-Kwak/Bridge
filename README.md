@@ -78,12 +78,21 @@
 <p>많은 우울증 환자들이 "우울일기"라는 것을 작성합니다. 일기의 작성은 자신의 하루를 돌아보게 하고, 더 나은 삶을 계획하는 데 발돋움이 됩니다. 하지만 때론 자신의 생각을 강화하고, 향상시킨다는 일기의 장점이 "우울"에 있어선 그조차도 강화시켜버리는 역효과를 낳을 수 있습니다. 우울한 감정을 기록하고 되새김으로써 그 감정이 더 깊어지고 고착화될 위험이 있기 때문입니다. Bridge는 그 우울을 환기시키는 것을 목표로 합니다.</p>
 <a src="https://computer-system-team-06.dev.mobilex.kr">https://computer-system-team-06.dev.mobilex.kr</a>
 <br>
-<h4>1. 긍정일기 : 자신의 하루를 새로운 시선으로 돌아보기</h4>
-이미지 넣기
-<h4>2. 할 일 추천 : 내일 날씨와 일기내용을 바탕으로한 할일 추천</h4>
-이미지 넣기
-<h4>3. 공감 댓글 : 공감 댓글 달기</h4>
-이미지 넣기
+<h4>🍎 1. 긍정일기 : 자신의 하루를 새로운 시선으로 돌아보기</h4>
+<p style="color: #ede; font-style: italic;">작성된 일기를 바탕으로 긍정적인 일기를 새롭게 생성해 원본과 함께 보여줍니다</p>
+<br>
+[ 일기 작성 페이지 ]
+<img src="https://github.com/Aiden-Kwak/Bridge/assets/67510613/36d6bffc-60bf-4e9a-acd6-bf40bc6095df">
+
+[ 작성된 일기 화면 : 긍정일기 ]
+<img src="https://github.com/Aiden-Kwak/Bridge/assets/67510613/ae1a4e00-73ba-4c06-a21b-4907d1c9c0d0">
+
+<br>
+<h4>🍋 2. 할 일 추천 : 내일 날씨와 일기내용을 바탕으로한 할일 추천</h4>
+<img src="https://github.com/Aiden-Kwak/Bridge/assets/67510613/ab860758-df0c-4f19-9b21-c5f314339a19">
+<br>
+<h4>🫐 3. 공감 댓글 : 공감 댓글 달기</h4>
+<img src="https://github.com/Aiden-Kwak/Bridge/assets/67510613/375a1f04-fa83-461c-bf9c-10f555f677ae">
 
 
 
